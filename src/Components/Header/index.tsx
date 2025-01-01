@@ -1,11 +1,11 @@
-import '/Users/andylarchin/Desktop/Development Journey/CashClever/src/index.css';
+import './style.css';
 
 const Header = () => {
   return (
     <>
       <div className='NavBar'>
         <h1>CashClever</h1>
-        <ul className='list-none'>
+        <ul className='navList'>
           <li>Mobile</li>
           <li>Navigator</li>
           <li>About us</li>
