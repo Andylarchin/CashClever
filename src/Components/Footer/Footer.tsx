@@ -1,4 +1,3 @@
-import React from 'react';
 import { PiggyBank, Twitter, Facebook, Instagram, Mail } from 'lucide-react';
 
 export function Footer() {
