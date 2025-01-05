@@ -1,4 +1,3 @@
-import React from 'react';
 import { Briefcase, Code, Wallet } from 'lucide-react';
 import { IncomeCard } from './IncomeCard';
 import { IncomeData } from '../../types/income';
