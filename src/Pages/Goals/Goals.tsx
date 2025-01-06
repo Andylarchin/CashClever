@@ -1,4 +1,3 @@
-import React from 'react';
 import { Layout } from '../../Components/Layout/Layout';
 import { MonthlyGoals } from '../../Components/Goals/MonthlyGoals';
 import { YearlyGoals } from '../../Components/Goals/YearlyGoals';

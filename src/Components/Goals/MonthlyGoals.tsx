@@ -1,4 +1,3 @@
-import React from 'react';
 import { Utensils, PiggyBank } from 'lucide-react';
 import { GoalProgress } from './GoalsProgress';
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { BarChart2, Clock, Shield } from 'lucide-react';
 
 export function GoalTips() {

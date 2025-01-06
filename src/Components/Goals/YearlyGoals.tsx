@@ -1,4 +1,3 @@
-import React from 'react';
 import { Home, GraduationCap } from 'lucide-react';
 import { GoalProgress } from './GoalsProgress';
 

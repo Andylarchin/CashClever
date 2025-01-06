@@ -4,9 +4,9 @@ import {
   PiggyBank,
   BarChart2,
   Bell,
-  User,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Layout } from '../../Components/Layout/Layout';
 
 const SidebarLink = ({
   icon: Icon,
@@ -33,18 +33,7 @@ export default function Dashboard() {
     <div className='flex h-screen bg-gray-50'>
       {/* Sidebar */}
       <div className='w-64 border-r border-gray-200 bg-white'>
-        <div className='p-4'>
-          <div className='flex items-center space-x-2 mb-8'>
-            <PiggyBank className='h-8 w-8 text-indigo-600' />
-            <span className='text-xl font-bold'>BudgetPro</span>
-          </div>
-          <nav className='space-y-1'>
-            <SidebarLink icon={LayoutDashboard} label='Dashboard' active />
-            <SidebarLink icon={Wallet} label='Income' />
-            <SidebarLink icon={PiggyBank} label='Expenses' />
-            <SidebarLink icon={BarChart2} label='Reports' />
-          </nav>
-        </div>
+        <Layout children={undefined}></Layout>
       </div>
 
       {/* Main Content */}

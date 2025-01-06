@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  LayoutDashboard,
-  Wallet,
-  Target,
-  BarChart2,
-  Bell,
-  User,
-} from 'lucide-react';
+import { LayoutDashboard, Wallet, Target, BarChart2, Bell } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 const SidebarLink = ({
@@ -43,7 +36,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <div className='p-4'>
           <div className='flex items-center space-x-2 mb-8'>
             <Wallet className='h-8 w-8 text-indigo-600' />
-            <span className='text-xl font-bold'>BudgetPro</span>
+            <span className='text-xl font-bold'>CashClever</span>
           </div>
           <nav className='space-y-1'>
             <SidebarLink
