@@ -1,11 +1,14 @@
 import { Pencil, Trash2 } from 'lucide-react';
 import { IncomeData } from '../../types/income';
+import { useIncomeData } from '../../hooks/useIncomeData';
 
 interface IncomeHistoryProps {
   data: IncomeData[];
 }
 
 export function IncomeHistory({ data }: IncomeHistoryProps) {
+  const { deleteIncome } = useIncomeData();
+
   return (
     <div className='bg-white p-6 rounded-lg shadow-sm'>
       <h2 className='text-lg font-semibold mb-6'>Recent Income History</h2>
@@ -45,7 +48,10 @@ export function IncomeHistory({ data }: IncomeHistoryProps) {
                   <button className='p-1 text-gray-400 hover:text-gray-600'>
                     <Pencil className='h-4 w-4' />
                   </button>
-                  <button className='p-1 text-gray-400 hover:text-gray-600'>
+                  <button
+                    className='p-1 text-gray-400 hover:text-gray-600'
+                    onClick={() => deleteIncome(item.id)}
+                  >
                     <Trash2 className='h-4 w-4' />
                   </button>
                 </div>
