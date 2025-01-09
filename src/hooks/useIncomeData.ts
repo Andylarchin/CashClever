@@ -36,5 +36,10 @@ export function useIncomeData() {
     setIncomeData([...incomeData, newIncome]);
   };
 
-  return { incomeData, addIncome };
+  const deleteIncome = (id: string) => {
+    const updatedData = incomeData.filter((income) => income.id !== id);
+    setIncomeData(updatedData);
+  };
+
+  return { incomeData, addIncome, deleteIncome };
 }

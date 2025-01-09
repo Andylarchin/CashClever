@@ -5,8 +5,9 @@ import {
   BarChart2,
   Bell,
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Layout } from '../../Components/Layout/Layout';
+import { useUserProfile } from '../../hooks/UseUserProfile';
 
 const SidebarLink = ({
   icon: Icon,
@@ -29,16 +30,15 @@ const SidebarLink = ({
 );
 
 export default function Dashboard() {
+  const { profile } = useUserProfile();
+  const navigate = useNavigate();
   return (
     <div className='flex h-screen bg-gray-50'>
-      {/* Sidebar */}
       <div className='w-64 border-r border-gray-200 bg-white'>
         <Layout children={undefined}></Layout>
       </div>
 
-      {/* Main Content */}
       <div className='flex-1 overflow-auto'>
-        {/* Top Navigation */}
         <div className='bg-white border-b border-gray-200 px-8 py-4'>
           <div className='flex justify-end items-center space-x-4'>
             <button className='p-2 text-gray-600 hover:text-gray-900'>
@@ -46,17 +46,18 @@ export default function Dashboard() {
             </button>
             <button className='p-2'>
               <img
-                src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=facearea&facepad=2&w=32&h=32&q=80'
+                src={profile.avatar}
                 alt='User'
                 className='h-8 w-8 rounded-full'
+                onClick={() => {
+                  navigate('/profile');
+                }}
               />
             </button>
           </div>
         </div>
 
-        {/* Dashboard Content */}
         <div className='p-8'>
-          {/* Overview Cards */}
           <div className='grid grid-cols-4 gap-6 mb-8'>
             <OverviewCard
               title='Total Balance'
@@ -84,7 +85,6 @@ export default function Dashboard() {
           </div>
 
           <div className='grid grid-cols-2 gap-6'>
-            {/* Recent Transactions */}
             <div className='bg-white rounded-lg p-6'>
               <div className='flex justify-between items-center mb-6'>
                 <h2 className='text-lg font-semibold'>Recent Transactions</h2>
@@ -95,7 +95,6 @@ export default function Dashboard() {
               <TransactionsList />
             </div>
 
-            {/* Budget Overview */}
             <div className='bg-white rounded-lg p-6'>
               <div className='flex justify-between items-center mb-6'>
                 <h2 className='text-lg font-semibold'>Budget Overview</h2>
@@ -107,7 +106,6 @@ export default function Dashboard() {
             </div>
           </div>
 
-          {/* Financial Goals */}
           <div className='mt-6'>
             <div className='bg-white rounded-lg p-6'>
               <div className='flex justify-between items-center mb-6'>

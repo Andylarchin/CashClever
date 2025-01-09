@@ -1,6 +1,14 @@
 import React from 'react';
-import { LayoutDashboard, Wallet, Target, BarChart2, Bell } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import {
+  LayoutDashboard,
+  Wallet,
+  Target,
+  BarChart2,
+  Bell,
+  Wallet2,
+} from 'lucide-react';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { useUserProfile } from '../../hooks/UseUserProfile';
 
 const SidebarLink = ({
   icon: Icon,
@@ -30,6 +38,10 @@ const SidebarLink = ({
 };
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const { profile } = useUserProfile();
+
+  const navigate = useNavigate();
+
   return (
     <div className='flex h-screen bg-gray-50'>
       <div className='w-64 border-r border-gray-200 bg-white'>
@@ -45,6 +57,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               to='/dashboard'
             />
             <SidebarLink icon={Wallet} label='Income' to='/income' />
+            <SidebarLink icon={Wallet2} label='Expenses' to='/expenses' />
             <SidebarLink icon={Target} label='Goals' to='/goals' />
             <SidebarLink icon={BarChart2} label='Reports' to='/reports' />
           </nav>
@@ -59,9 +72,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </button>
             <button className='p-2'>
               <img
-                src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=facearea&facepad=2&w=32&h=32&q=80'
+                src={profile.avatar}
                 alt='User'
                 className='h-8 w-8 rounded-full'
+                onClick={() => {
+                  navigate('/profile');
+                }}
               />
             </button>
           </div>
